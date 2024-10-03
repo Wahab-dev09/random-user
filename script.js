@@ -6,10 +6,9 @@ const fetchRandomUser = async () => {
   buttonText.style.display = 'none';
 
   try {
-    const data = await fetch('https://randomuser.me/api/');
-    const res = await data.json();
-    const { results } = res;
-    console.log(results)
+    const reponse = await fetch('https://randomuser.me/api/');
+    const object = await reponse.json();
+    const { results } = object;
     const user = results[0];
     document.getElementById('name').textContent = `${user.name.first} ${user.name.last}`;
     document.getElementById('gender').textContent = user.gender;
